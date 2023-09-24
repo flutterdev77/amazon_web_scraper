@@ -15,8 +15,6 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final apiService = ref.watch(apiServiceProvider);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Amazon Trending Product'),

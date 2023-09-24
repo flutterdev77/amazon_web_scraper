@@ -6,28 +6,11 @@ class ApiService {
   final String apiKey = '31ce1d92144f03aa5f18e8a2b6efa9d3';
 
   Future<List<Map<String, dynamic>>> fetchTrendingProduct() async {
-    // const apiKey = "31ce1d92144f03aa5f18e8a2b6efa9d3";
-    // const trendingProductsUrl = 'https://www.amazon.com/Best-Sellers/zgbs';
-    // const url =
-    //     'https://api.scraperapi.com?api_key=$apiKey&url=$trendingProductsUrl';
-    // final response = await http.get(Uri.parse(url));
-    //
-    // if (response.statusCode == 200) {
-    //   final decodedJson = json.decode(response.body);
-    //
-    //   final urlImages = decodedJson
-    //       .querySelectorAll('span > a > div > img')
-    //       .map((element) => element.attributes['src']!)
-    //       .toList();
-    //
-    //   return urlImages;
+    try {
+      const trendingProductsUrl = 'https://www.amazon.com/Best-Sellers/zgbs';
 
-
-
-    try{
-      const  trendingProductsUrl = 'https://www.amazon.com/Best-Sellers/zgbs';
-
-      final String url = 'https://api.scraperapi.com?api_key=$apiKey&url=$trendingProductsUrl';
+      final String url =
+          'https://api.scraperapi.com?api_key=$apiKey&url=$trendingProductsUrl';
       final response = await http.get(Uri.parse(url));
 
       if (response.statusCode == 200) {
@@ -37,7 +20,7 @@ class ApiService {
       } else {
         throw Exception('Failed to load trending products');
       }
-    }catch(error, _){
+    } catch (error, _) {
       throw Exception();
     }
   }
